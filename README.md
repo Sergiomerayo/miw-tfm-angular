@@ -5,7 +5,8 @@ Authors:
 - Piero Rodríguez Angulo
 - Sergio Merayo Alba
 
-##DevOps
+## DevOps
+
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?branch=develop&project=Sergiomerayo_miw-tfm-angular&metric=alert_status)](https://sonarcloud.io/dashboard?id=Sergiomerayo_miw-tfm-angular&branch=develop)
 
 [![Angular - Tests](https://github.com/Sergiomerayo/miw-tfm-angular/actions/workflows/actions-config.yml/badge.svg)](https://github.com/Sergiomerayo/miw-tfm-angular/actions/workflows/test-sonar.yml)
