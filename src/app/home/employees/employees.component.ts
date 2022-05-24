@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {EmployeeSearch} from "../../shared/models/employee-search.model";
 import {of} from "rxjs";
 import {EmployeeService} from "../../shared/services/employee.service";
+import {ReadDetailDialogComponent} from "../../shared/dialogs/read-detail.dialog/read-detail.dialog.component";
+import {Employee} from "../../shared/models/employee.model";
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-employees',
@@ -16,7 +19,7 @@ export class EmployeesComponent implements OnInit{
   title = 'Employees Company';
   columnsHeader: Array<string> = ["identifier", "name", "category", "actions"];
 
-  constructor(private employeeService: EmployeeService) {
+  constructor(private dialog: MatDialog, private employeeService: EmployeeService) {
     this.resetSearch();
   }
 
@@ -31,7 +34,13 @@ export class EmployeesComponent implements OnInit{
   create(): void {
   }
 
-  read() {
+  read(employee: Employee) {
+    this.dialog.open(ReadDetailDialogComponent, {
+      data: {
+        title: 'Employee details',
+        object: this.employeeService.read(employee.name)
+      }
+    });
   }
   update(employee: string) {
 
