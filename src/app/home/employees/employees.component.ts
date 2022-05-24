@@ -21,6 +21,7 @@ export class EmployeesComponent implements OnInit{
   }
 
   search(): void {
+    this.employees = this.employeeService.search(this.employeeSearch);
   }
 
   resetSearch(): void {
