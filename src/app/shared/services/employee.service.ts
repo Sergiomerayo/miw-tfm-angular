@@ -19,4 +19,8 @@ export class EmployeeService {
       {identifier:"1", salary:100000, category:"senior", name:"sergio"}
     ]);
   }
+
+  read(name: string) {
+    return of({identifier:"2", salary:200000, category:"junior", name:"carlos"});
+  }
 }
