@@ -35,7 +35,7 @@ describe('AppComponent', () => {
         MatFormFieldModule,
         MatInputModule,
         FormsModule,
-        FooterModule
+        FooterModule,
       ]
     }).compileComponents();
   });

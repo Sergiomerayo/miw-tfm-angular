@@ -15,6 +15,7 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {FormsModule} from "@angular/forms";
 import {FooterModule} from "../shared/footer/footer.module";
+import {HttpClientModule} from "@angular/common/http";
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -37,7 +38,8 @@ describe('HomeComponent', () => {
         MatFormFieldModule,
         MatInputModule,
         FormsModule,
-        FooterModule
+        FooterModule,
+        HttpClientModule,
       ]
     })
     .compileComponents();
