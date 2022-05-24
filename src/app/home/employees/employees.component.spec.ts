@@ -16,6 +16,8 @@ import {MatInputModule} from "@angular/material/input";
 import {FormsModule} from "@angular/forms";
 import {FooterComponent} from "../../shared/footer/footer.component";
 import {FooterModule} from "../../shared/footer/footer.module";
+import {HttpClientModule} from "@angular/common/http";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 describe('EmployeesComponent', () => {
   let component: EmployeesComponent;
@@ -38,7 +40,9 @@ describe('EmployeesComponent', () => {
         MatFormFieldModule,
         MatInputModule,
         FormsModule,
-        FooterModule
+        FooterModule,
+        HttpClientModule,
+        MatSnackBarModule
       ]
     })
     .compileComponents();
