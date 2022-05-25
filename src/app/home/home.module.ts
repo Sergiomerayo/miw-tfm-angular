@@ -11,12 +11,13 @@ import {MatTableModule} from "@angular/material/table";
 import {MatCardModule} from "@angular/material/card";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {RouterModule} from "@angular/router";
 import { EmployeeCreationUpdatingDialogComponent } from './employees/employee-creation-updating-dialog/employee-creation-updating-dialog.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import {CommonModule} from "@angular/common";
 import {ScrollingModule} from "@angular/cdk/scrolling";
+import { ReportFeedbackComponent } from './report-feedback/report-feedback.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import {ScrollingModule} from "@angular/cdk/scrolling";
     HomeComponent,
     EmployeesComponent,
     FooterComponent,
-    EmployeeCreationUpdatingDialogComponent
+    EmployeeCreationUpdatingDialogComponent,
+    ReportFeedbackComponent,
 
   ],
   imports: [
@@ -42,6 +44,7 @@ import {ScrollingModule} from "@angular/cdk/scrolling";
     FormsModule,
     MatDialogModule,
     ScrollingModule,
+    ReactiveFormsModule
   ],
 })
 export class HomeModule {

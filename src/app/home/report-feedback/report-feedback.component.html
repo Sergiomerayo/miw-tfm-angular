@@ -1,0 +1,21 @@
+<mat-card class="card">
+  <mat-card-content >
+    <mat-form-field class="form-feedback" appearance="fill">
+      <mat-label>Feedback</mat-label>
+      <input [(ngModel)]="feedback" type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+             placeholder="e.g. I would like to have fruit at the office.">
+      <mat-hint>Feedback is welcome! Minimum 10 characters</mat-hint>
+      <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+        Please enter a feedback
+      </mat-error>
+      <mat-error *ngIf="emailFormControl.hasError('required')">
+        Feedback<strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+  </mat-card-content>
+  <div id="separator"></div>
+  <button mat-raised-button color="primary" (click)="send()">Send</button>
+  <button mat-raised-button color="warn" (click)="reset()"><mat-icon>delete</mat-icon></button>
+</mat-card>
+
+
