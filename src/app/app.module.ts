@@ -40,7 +40,7 @@ import {MatDialogModule} from "@angular/material/dialog";
     FormsModule,
     HttpClientModule,
     MatSnackBarModule,
-    MatDialogModule
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
