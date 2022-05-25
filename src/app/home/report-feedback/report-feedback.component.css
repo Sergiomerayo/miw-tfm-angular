@@ -1,0 +1,17 @@
+
+.form-feedback {
+  width: 100%;
+}
+
+.card {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+#separator {
+  margin-bottom: 2%;
+}
+
+button {
+  margin-right: 10px;
+}

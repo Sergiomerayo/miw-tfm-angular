@@ -5,17 +5,17 @@
     </button>
     <span class="title-page">Human Resources</span>
     <span class="spacer-small"></span>
-    <a mat-button="" routerlink="/home/employees" routerlinkactive="docs-navbar-header-item-selected" class="mat-focus-indicator docs-navbar-hide-small docs-button mat-button mat-button-base" aria-disabled="false">
+    <a mat-button="" [routerLink]="['/home/employees']" class="mat-focus-indicator docs-navbar-hide-small docs-button mat-button mat-button-base" aria-disabled="false">
       <span class="mat-button-wrapper">Employees</span>
     </a>
 
     <span class="spacer-small"></span>
-    <a mat-button="" routerlink="/home" routerlinkactive="docs-navbar-header-item-selected" class="mat-focus-indicator docs-navbar-hide-small docs-button mat-button mat-button-base" aria-disabled="false">
+    <a mat-button="" [routerLink]="['/home']" class="mat-focus-indicator docs-navbar-hide-small docs-button mat-button mat-button-base" aria-disabled="false">
       <span class="mat-button-wrapper">Time registration</span>
     </a>
 
     <span class="spacer"></span>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+    <button mat-icon-button class="reportHr" [routerLink]="['/home/feedback']" aria-label="icon-button with share icon">
       <mat-icon>email</mat-icon>
     </button>
   </mat-toolbar>
