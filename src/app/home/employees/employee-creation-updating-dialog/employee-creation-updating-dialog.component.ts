@@ -19,7 +19,9 @@ export class EmployeeCreationUpdatingDialogComponent {
   }
 
   create(): void {
-
+    this.employeeService
+      .create(this.employee)
+      .subscribe(() => this.dialog.closeAll());
   }
 
   isCreate(): boolean {

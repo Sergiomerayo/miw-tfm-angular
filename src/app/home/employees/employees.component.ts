@@ -44,10 +44,13 @@ export class EmployeesComponent implements OnInit{
       }
     });
   }
-  update(employee: string) {
+  update(employee: Employee) {
 
   }
 
+  delete(employee: Employee){
+    this.employeeService.delete(employee);
+  }
   ngOnInit(): void {
     this.employees = this.employeeService.search(this.employeeSearch);
   }
