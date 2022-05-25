@@ -5,6 +5,7 @@ import {EmployeeService} from "../../shared/services/employee.service";
 import {ReadDetailDialogComponent} from "../../shared/dialogs/read-detail.dialog/read-detail.dialog.component";
 import {Employee} from "../../shared/models/employee.model";
 import {MatDialog} from "@angular/material/dialog";
+import {EmployeeCreationUpdatingDialogComponent} from "./employee-creation-updating-dialog/employee-creation-updating-dialog.component";
 
 @Component({
   selector: 'app-employees',
@@ -32,6 +33,7 @@ export class EmployeesComponent implements OnInit{
   }
 
   create(): void {
+    this.dialog.open(EmployeeCreationUpdatingDialogComponent);
   }
 
   read(employee: Employee) {

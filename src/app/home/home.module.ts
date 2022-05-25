@@ -13,6 +13,9 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {FormsModule} from "@angular/forms";
 import {RouterModule} from "@angular/router";
+import { EmployeeCreationUpdatingDialogComponent } from './employees/employee-creation-updating-dialog/employee-creation-updating-dialog.component';
+import {MatDialogModule} from "@angular/material/dialog";
+import {CommonModule} from "@angular/common";
 
 
 @NgModule({
@@ -20,11 +23,13 @@ import {RouterModule} from "@angular/router";
 
     HomeComponent,
     EmployeesComponent,
-    FooterComponent
+    FooterComponent,
+    EmployeeCreationUpdatingDialogComponent
 
   ],
   imports: [
     RouterModule,
+    CommonModule,
     HomeRoutingModule,
     MatToolbarModule,
     MatButtonModule,
@@ -34,6 +39,7 @@ import {RouterModule} from "@angular/router";
     MatFormFieldModule,
     MatInputModule,
     FormsModule,
+    MatDialogModule,
   ],
 })
 export class HomeModule {
