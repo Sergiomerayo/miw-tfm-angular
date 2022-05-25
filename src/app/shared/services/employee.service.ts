@@ -23,4 +23,12 @@ export class EmployeeService {
   read(name: string) {
     return of({identifier:"2", salary:200000, category:"junior", name:"carlos"});
   }
+
+  create(employee: Employee) {
+    return of([]);
+  }
+
+  delete(employee: Employee) {
+    return of([]);
+  }
 }
