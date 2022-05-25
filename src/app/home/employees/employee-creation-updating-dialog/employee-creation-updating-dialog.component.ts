@@ -24,8 +24,14 @@ export class EmployeeCreationUpdatingDialogComponent {
       .subscribe(() => this.dialog.closeAll());
   }
 
+  update() {
+    this.employeeService
+      .update(this.employee)
+      .subscribe(() => this.dialog.closeAll());
+  }
+
   isCreate(): boolean {
-    return true;
+    return this.employee.identifier === "";
   }
 
 }
