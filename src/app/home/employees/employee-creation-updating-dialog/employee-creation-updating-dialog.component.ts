@@ -11,10 +11,12 @@ import {EmployeeService} from "../../../shared/services/employee.service";
 export class EmployeeCreationUpdatingDialogComponent {
   title: string;
   employee: Employee;
+  newComment: string = "";
+
   constructor(@Inject(MAT_DIALOG_DATA) data: Employee, private employeeService: EmployeeService, private dialog: MatDialog) {
     this.title = 'Employee';
     this.employee = data ? data : {
-      identifier: "", name: "", category: "", salary: undefined
+      identifier: "", name: "", category: "", salary: undefined, comments: []
     }
   }
 
@@ -25,6 +27,9 @@ export class EmployeeCreationUpdatingDialogComponent {
   }
 
   update() {
+    if(this.newComment.length > 0) {
+      this.employee.comments.push(this.newComment);
+    }
     this.employeeService
       .update(this.employee)
       .subscribe(() => this.dialog.closeAll());

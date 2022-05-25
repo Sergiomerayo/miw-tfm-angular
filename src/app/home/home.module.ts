@@ -16,6 +16,7 @@ import {RouterModule} from "@angular/router";
 import { EmployeeCreationUpdatingDialogComponent } from './employees/employee-creation-updating-dialog/employee-creation-updating-dialog.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import {CommonModule} from "@angular/common";
+import {ScrollingModule} from "@angular/cdk/scrolling";
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import {CommonModule} from "@angular/common";
     MatInputModule,
     FormsModule,
     MatDialogModule,
+    ScrollingModule,
   ],
 })
 export class HomeModule {

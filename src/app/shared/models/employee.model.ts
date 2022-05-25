@@ -3,4 +3,5 @@ export interface Employee{
   name:string;
   category: string;
   salary?:number;
+  comments: string[];
 }

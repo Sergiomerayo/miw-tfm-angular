@@ -5,6 +5,7 @@
     <mat-label>Name</mat-label>
     <input [(ngModel)]="employee.name" id="name" matInput required type="text"/>
   </mat-form-field>
+
   <mat-form-field class="full-width">
     <mat-label>Category</mat-label>
     <input [(ngModel)]="employee.category" id="category" matInput required type="text"/>
@@ -13,16 +14,20 @@
     <mat-label>Salary</mat-label>
     <input [(ngModel)]="employee.salary" id="salary" matInput required type="text"/>
   </mat-form-field>
-
-
+  <mat-form-field class="full-width">
+    <mat-label>New comment</mat-label>
+    <input [(ngModel)]="newComment" id="newComment" matInput type="text"/>
+  </mat-form-field>
 </mat-dialog-content>
+
+<cdk-virtual-scroll-viewport class="viewport" itemSize="10" *ngIf="!isCreate()">
+  <div *cdkVirtualFor="let comment of employee.comments" class="item">
+      {{comment}}
+  </div>
+</cdk-virtual-scroll-viewport>
 
 <mat-dialog-actions>
   <button cdkFocusInitial mat-dialog-close mat-raised-button>Close</button>
-  <button (click)="create()" *ngIf="isCreate()" color="primary" mat-raised-button>
-    Create
-  </button>
-  <button (click)="update()" *ngIf="!isCreate()" color="primary" mat-raised-button>
-    Update
-  </button>
+  <button (click)="create()" *ngIf="isCreate()" color="primary" mat-raised-button>Create</button>
+  <button (click)="update()" *ngIf="!isCreate()" color="primary" mat-raised-button>Update</button>
 </mat-dialog-actions>
