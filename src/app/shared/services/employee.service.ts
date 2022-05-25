@@ -31,4 +31,8 @@ export class EmployeeService {
   delete(employee: Employee) {
     return of([]);
   }
+
+  update(employee: Employee) {
+    return of([]);
+  }
 }

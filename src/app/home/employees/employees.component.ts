@@ -40,12 +40,13 @@ export class EmployeesComponent implements OnInit{
     this.dialog.open(ReadDetailDialogComponent, {
       data: {
         title: 'Employee details',
-        object: this.employeeService.read(employee.name)
+        object: this.employeeService.read(employee.identifier)
       }
     });
   }
   update(employee: Employee) {
-
+    this.employeeService.read(employee.identifier)
+      .subscribe(fullEmployee => this.dialog.open(EmployeeCreationUpdatingDialogComponent, {data: fullEmployee}));
   }
 
   delete(employee: Employee){
