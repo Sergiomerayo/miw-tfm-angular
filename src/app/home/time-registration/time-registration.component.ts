@@ -15,6 +15,7 @@ export class TimeRegistrationComponent implements OnInit {
   constructor(private timeRegistrationService: TimeRegistrationService) { }
 
   ngOnInit(): void {
+    this.registrations = this.timeRegistrationService.searchAll();
   }
 
 
