@@ -20,4 +20,10 @@ export class TimeRegistrationService {
   leave(date: Date) {
     return of([]); //Update row in DB
   }
+
+  searchAll() {
+    return of([{identifier: "2022101", entryHour: new Date(), leaveHour: new Date()},
+      {identifier: "2022105", entryHour: new Date(), leaveHour: new Date()},
+      {identifier: "2022325", entryHour: new Date(), leaveHour: new Date()}]); //findall endpoint
+  }
 }
