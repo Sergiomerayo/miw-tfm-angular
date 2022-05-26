@@ -21,4 +21,8 @@ export class TimeRegistrationComponent implements OnInit {
   entry() {
     this.timeRegistrationService.entry(new Date());
   }
+
+  leave() {
+    this.timeRegistrationService.leave(new Date());
+  }
 }
