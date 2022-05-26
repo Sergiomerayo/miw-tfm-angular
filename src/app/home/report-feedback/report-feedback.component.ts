@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroupDirective, NgForm, Validators} from "@angular/forms";
 import {ErrorStateMatcher} from "@angular/material/core";
 import {ReportFeedbackService} from "../../shared/services/report-feedback.service";
+import {of} from "rxjs";
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -18,15 +19,20 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 export class ReportFeedbackComponent implements OnInit {
   emailFormControl = new FormControl('', [Validators.required, Validators.minLength(10)]);
   feedback: string = ""
+  feedbacks = of(<any> []);
   matcher = new MyErrorStateMatcher();
+  columnsHeader: Array<string> = ["identifier", "feedback"];
+
   constructor(private reportFeedbackService: ReportFeedbackService) { }
 
   ngOnInit(): void {
+    this.feedbacks = this.reportFeedbackService.search();
   }
 
   send() {
     this.reportFeedbackService.send(this.feedback);
     this.feedback = "";
+    this.feedbacks = this.reportFeedbackService.search();
   }
 
   reset() {
