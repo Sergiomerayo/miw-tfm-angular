@@ -17,4 +17,7 @@ export class TimeRegistrationService {
     return of([]); //Create new row on DB
   }
 
+  leave(date: Date) {
+    return of([]); //Update row in DB
+  }
 }
