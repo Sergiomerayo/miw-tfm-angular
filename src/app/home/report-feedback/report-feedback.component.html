@@ -18,4 +18,26 @@
   <button mat-raised-button color="warn" (click)="reset()"><mat-icon>delete</mat-icon></button>
 </mat-card>
 
+<mat-card class="feedbacks">
+  <mat-card-title>Feedbacks Reported</mat-card-title>
+  <mat-card-content>
+    <mat-table #table [dataSource]="feedbacks" class="mat-elevation-z8" matSort>
+      <mat-header-row *matHeaderRowDef="columnsHeader"></mat-header-row>
+      <mat-row *matRowDef="let element; columns: columnsHeader;"></mat-row>
+      <ng-container matColumnDef="identifier">
+        <mat-header-cell *matHeaderCellDef> Identifier</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.identifier}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="feedback">
+        <mat-header-cell *matHeaderCellDef> Feedback</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.feedback}} </mat-cell>
+      </ng-container>
+    </mat-table>
+  </mat-card-content>
+</mat-card>
+
+
+<app-footer></app-footer>
+
 
