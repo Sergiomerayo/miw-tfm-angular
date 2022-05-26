@@ -1,0 +1,23 @@
+<h2 mat-dialog-title>{{title}}</h2>
+
+<mat-dialog-content>
+
+  <mat-form-field class="full-width">
+    <mat-label>Entry Hour</mat-label>
+    <input [(ngModel)]="dateTimeRegistry" id="date" matInput required type="date"/>
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <mat-label>Entry Hour</mat-label>
+    <input [(ngModel)]="entryHour" id="entry" matInput required type="time"/>
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <mat-label>Leave Hour</mat-label>
+    <input [(ngModel)]="leaveHour" id="category" matInput required type="time"/>
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button cdkFocusInitial mat-dialog-close mat-raised-button>Close</button>
+  <button (click)="update()" color="primary" mat-raised-button>Update</button>
+</mat-dialog-actions>
