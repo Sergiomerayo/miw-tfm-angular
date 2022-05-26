@@ -5,7 +5,7 @@
 </mat-card>
 
 <mat-card class="times">
-  <mat-card-title>Feedbacks Reported</mat-card-title>
+  <mat-card-title>Time Registrations</mat-card-title>
   <mat-card-content>
     <mat-table #table [dataSource]="registrations" class="mat-elevation-z8" matSort>
       <mat-header-row *matHeaderRowDef="columnsHeader"></mat-header-row>
@@ -22,6 +22,17 @@
       <ng-container matColumnDef="leaveHour">
         <mat-header-cell *matHeaderCellDef> Leave</mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.leaveHour.toLocaleString()}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef>
+          <button (click)="update()" mat-button mat-icon-button matSuffix>
+            <mat-icon color="warn">edit</mat-icon>
+          </button>
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+
+        </mat-cell>
       </ng-container>
     </mat-table>
   </mat-card-content>

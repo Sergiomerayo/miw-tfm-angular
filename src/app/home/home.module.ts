@@ -19,6 +19,7 @@ import {CommonModule} from "@angular/common";
 import {ScrollingModule} from "@angular/cdk/scrolling";
 import { ReportFeedbackComponent } from './report-feedback/report-feedback.component';
 import { TimeRegistrationComponent } from './time-registration/time-registration.component';
+import { TimeRegistrationUpdatingDialogComponent } from './time-registration/time-registration-updating-dialog/time-registration-updating-dialog.component';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { TimeRegistrationComponent } from './time-registration/time-registration
     EmployeeCreationUpdatingDialogComponent,
     ReportFeedbackComponent,
     TimeRegistrationComponent,
+    TimeRegistrationUpdatingDialogComponent,
 
   ],
   imports: [

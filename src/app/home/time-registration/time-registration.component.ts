@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {of} from "rxjs";
 import {TimeRegistrationService} from "../../shared/services/time-registration.service";
+import {MatDialog} from "@angular/material/dialog";
+import {TimeRegistrationUpdatingDialogComponent} from "./time-registration-updating-dialog/time-registration-updating-dialog.component";
 
 @Component({
   selector: 'app-time-registration',
@@ -11,13 +13,16 @@ export class TimeRegistrationComponent implements OnInit {
 
   registrations = of(<any> []);
 
-  columnsHeader: Array<string> = ["identifier", "entryHour", "leaveHour"];
-  constructor(private timeRegistrationService: TimeRegistrationService) { }
+  columnsHeader: Array<string> = ["identifier", "entryHour", "leaveHour", "actions"];
+  constructor(private dialog: MatDialog, private timeRegistrationService: TimeRegistrationService) { }
 
   ngOnInit(): void {
     this.registrations = this.timeRegistrationService.searchAll();
   }
 
+  update() {
+    this.dialog.open(TimeRegistrationUpdatingDialogComponent);
+  }
 
   entry() {
     this.timeRegistrationService.entry(new Date());
