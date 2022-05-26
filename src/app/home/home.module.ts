@@ -18,6 +18,7 @@ import {MatDialogModule} from "@angular/material/dialog";
 import {CommonModule} from "@angular/common";
 import {ScrollingModule} from "@angular/cdk/scrolling";
 import { ReportFeedbackComponent } from './report-feedback/report-feedback.component';
+import { TimeRegistrationComponent } from './time-registration/time-registration.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { ReportFeedbackComponent } from './report-feedback/report-feedback.compo
     FooterComponent,
     EmployeeCreationUpdatingDialogComponent,
     ReportFeedbackComponent,
+    TimeRegistrationComponent,
 
   ],
   imports: [

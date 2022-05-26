@@ -4,6 +4,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {EmployeesComponent} from "./employees/employees.component";
 import {HomeComponent} from "./home.component";
 import {ReportFeedbackComponent} from "./report-feedback/report-feedback.component";
+import {TimeRegistrationComponent} from "./time-registration/time-registration.component";
 
 const routes: Routes = [
   {
@@ -12,6 +13,7 @@ const routes: Routes = [
     children: [
       {path: 'employees', component: EmployeesComponent},
       {path: 'feedback', component: ReportFeedbackComponent},
+      {path: 'time-registration', component: TimeRegistrationComponent},
     ]
   }
 ];

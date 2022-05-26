@@ -1,0 +1,21 @@
+
+.buttons {
+  margin-left: 30%;
+  margin-right: 30%;
+  display: flex;
+  justify-content: center;
+}
+
+#separator {
+  margin-bottom: 2%;
+}
+
+button {
+  margin-right: 10px;
+}
+
+.times{
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 1%;
+}
