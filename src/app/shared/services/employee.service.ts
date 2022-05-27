@@ -12,12 +12,13 @@ export class EmployeeService {
 
   constructor(private httpService: HttpService) { }
 
-  search(employeeSearch: EmployeeSearch): Observable<Employee[]> {
-    return of([{identifier:"1", salary:100000, category:"senior", name:"sergio", comments:["asdasd", "fafdasdafsaf"]},
+  search(employeeSearch: EmployeeSearch): Observable<any> {
+    return this.httpService.get("http://localhost:8082/employees/search");
+    /*return of([{identifier:"1", salary:100000, category:"senior", name:"sergio", comments:["asdasd", "fafdasdafsaf"]},
       {identifier:"2", salary:100000, category:"senior", name:"sergio", comments:["hola k ase,", "jajaja"]},
       {identifier:"1", salary:100000, category:"senior", name:"sergio", comments:[]},
       {identifier:"1", salary:100000, category:"senior", name:"sergio", comments:[]}
-    ]);
+    ]);*/
   }
 
   read(name: string) {
