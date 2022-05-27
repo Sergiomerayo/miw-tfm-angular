@@ -40,8 +40,21 @@ export class HttpService {
     return this.http
       .get(endpoint, this.createOptions())
       .pipe(
-        map(response => console.log(response))
+        map(response => this.extractData(response))
       );
+  }
+  private extractData(response: any): any {
+    const contentType = response.headers.get('content-type');
+    if (contentType) {
+      if (contentType.indexOf('application/pdf') !== -1) {
+        const blob = new Blob([response.body], {type: 'application/pdf'});
+        window.open(window.URL.createObjectURL(blob));
+      } else if (contentType.indexOf('application/json') !== -1) {
+        return response.body; // with 'text': JSON.parse(response.body);
+      }
+    } else {
+      return response;
+    }
   }
 
   put(endpoint: string, body?: object): Observable<any> {
