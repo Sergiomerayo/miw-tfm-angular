@@ -16,11 +16,15 @@ export class EmployeeCreationUpdatingDialogComponent {
   constructor(@Inject(MAT_DIALOG_DATA) data: Employee, private employeeService: EmployeeService, private dialog: MatDialog) {
     this.title = 'Employee';
     this.employee = data ? data : {
-      identifier: "", name: "", category: "", salary: undefined, comments: []
+      identifier: "", name: "", category: "", salary: undefined, comments: [""]
     }
   }
 
   create(): void {
+    if(this.newComment !=""){
+      this.employee.comments.push(this.newComment);
+    }
+
     this.employeeService
       .create(this.employee)
       .subscribe(() => this.dialog.closeAll());
@@ -33,10 +37,6 @@ export class EmployeeCreationUpdatingDialogComponent {
     this.employeeService
       .update(this.employee)
       .subscribe(() => this.dialog.closeAll());
-  }
-
-  isCreate(): boolean {
-    return this.employee.identifier === "";
   }
 
 }

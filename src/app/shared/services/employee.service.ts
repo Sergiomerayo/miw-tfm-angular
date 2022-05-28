@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import {Observable, of} from "rxjs";
+import {identity, Observable, of} from "rxjs";
 
 import {HttpService} from "../../core/http.service";
 import {EmployeeSearch} from "../models/employee-search.model";
 import {Employee} from "../models/employee.model";
+import {EndPoints} from "../end-points";
 
 @Injectable({
   providedIn: 'root'
@@ -13,24 +14,24 @@ export class EmployeeService {
   constructor(private httpService: HttpService) { }
 
   search(employeeSearch: EmployeeSearch): Observable<any> {
-    return this.httpService.get("http://localhost:8082/employees/search");
-    /*return of([{identifier:"1", salary:100000, category:"senior", name:"sergio", comments:["asdasd", "fafdasdafsaf"]},
-      {identifier:"2", salary:100000, category:"senior", name:"sergio", comments:["hola k ase,", "jajaja"]},
-      {identifier:"1", salary:100000, category:"senior", name:"sergio", comments:[]},
-      {identifier:"1", salary:100000, category:"senior", name:"sergio", comments:[]}
-    ]);*/
+    if(employeeSearch.employeeIdentifier =="") {
+      return this.httpService.get(EndPoints.EMPLOYEES_SEARCH);
+    }
+   else{
+     return this.read(employeeSearch.employeeIdentifier);
+    }
   }
 
-  read(name: string) {
-    return of({identifier:"2", salary:200000, category:"junior", name:"carlos", comments: ["hola k ase,", "jajaja","asdasd", "fafdasdafsaf","asdasd", "fafdasdafsaf","asdasd", "fafdasdafsaf","asdasd", "fafdasdafsaf","asdasd", "fafdasdafsaf","asdasd", "fafdasdafsaf","asdasd", "fafdasdafsaf","asdasd", "fafdasdafsaf","asdasd", "fafdasdafsaf","asdasd", "fafdasdafsaf","asdasd", "fafdasdafsaf"]});
+  read(identifier: string) {
+    return this.httpService.get(EndPoints.EMPLOYEES + '/' + identifier);
   }
 
   create(employee: Employee) {
-    return of([]);
+    return this.httpService.post(EndPoints.EMPLOYEES, employee);
   }
 
   delete(employee: Employee) {
-    return of([]);
+    return this.httpService.delete(EndPoints.EMPLOYEES + '/' + employee.identifier);
   }
 
   update(employee: Employee) {

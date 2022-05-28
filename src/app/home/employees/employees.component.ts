@@ -29,7 +29,7 @@ export class EmployeesComponent implements OnInit{
   }
 
   resetSearch(): void {
-    this.employeeSearch = {};
+    this.employeeSearch = {employeeIdentifier: ""};
   }
 
   create(): void {
@@ -50,9 +50,10 @@ export class EmployeesComponent implements OnInit{
   }
 
   delete(employee: Employee){
-    this.employeeService.delete(employee);
+    this.employeeService.delete(employee).subscribe();
   }
   ngOnInit(): void {
+    this.employeeSearch = {employeeIdentifier: ""};
     this.employees = this.employeeService.search(this.employeeSearch);
   }
 
