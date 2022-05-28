@@ -68,7 +68,6 @@ export class HttpService {
   }
 
   delete(endpoint: string): Observable<any> {
-    console.log(endpoint);
     return this.http
       .delete(endpoint, this.createOptions());
   }

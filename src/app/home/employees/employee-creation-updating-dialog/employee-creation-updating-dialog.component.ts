@@ -31,7 +31,7 @@ export class EmployeeCreationUpdatingDialogComponent {
   }
 
   update() {
-    if(this.newComment.length > 0) {
+    if(this.newComment!="") {
       this.employee.comments.push(this.newComment);
     }
     this.employeeService

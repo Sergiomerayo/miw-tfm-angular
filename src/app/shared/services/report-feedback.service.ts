@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpService} from "../../core/http.service";
-import {of} from "rxjs";
+import {EndPoints} from "../end-points";
+import {Feedback} from "../models/feedback.model";
 
 @Injectable({
   providedIn: 'root'
@@ -9,12 +10,11 @@ export class ReportFeedbackService {
 
   constructor(private httpService: HttpService) { }
 
-  send(feedback: string) {
-    return of([]);
+  send(feedback: Feedback) {
+    return this.httpService.post(EndPoints.FEEDBACKS, feedback);
   }
 
   search() {
-    return of([{identifier: "1", feedback: "I want more confortable chairs."},
-      {identifier: "2", feedback: "I would like to have more flexible hours."}]);
+    return this.httpService.get(EndPoints.FEEDBACKS_SEARCH);
   }
 }

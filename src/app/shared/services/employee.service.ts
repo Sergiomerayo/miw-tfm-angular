@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {identity, Observable, of} from "rxjs";
+import {Observable} from "rxjs";
 
 import {HttpService} from "../../core/http.service";
 import {EmployeeSearch} from "../models/employee-search.model";
@@ -35,6 +35,6 @@ export class EmployeeService {
   }
 
   update(employee: Employee) {
-    return of([]);
+    return this.httpService.put(EndPoints.EMPLOYEES + '/' + employee.identifier, employee);
   }
 }
