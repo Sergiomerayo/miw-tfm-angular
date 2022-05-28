@@ -2,7 +2,7 @@
   <mat-card-content >
     <mat-form-field class="form-feedback" appearance="fill">
       <mat-label>Feedback</mat-label>
-      <input [(ngModel)]="feedback" type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+      <input [(ngModel)]="feedback.feedback" type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
              placeholder="e.g. I would like to have fruit at the office.">
       <mat-hint>Feedback is welcome! Minimum 10 characters</mat-hint>
       <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">

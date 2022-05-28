@@ -1,3 +1,3 @@
 export class EmployeeSearch{
-  employeeName?: string;
+  employeeIdentifier: string;
 }

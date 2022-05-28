@@ -3,6 +3,7 @@ import {FormControl, FormGroupDirective, NgForm, Validators} from "@angular/form
 import {ErrorStateMatcher} from "@angular/material/core";
 import {ReportFeedbackService} from "../../shared/services/report-feedback.service";
 import {of} from "rxjs";
+import {Feedback} from "../../shared/models/feedback.model";
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -18,7 +19,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 })
 export class ReportFeedbackComponent implements OnInit {
   emailFormControl = new FormControl('', [Validators.required, Validators.minLength(10)]);
-  feedback: string = ""
+  feedback: Feedback;
   feedbacks = of(<any> []);
   matcher = new MyErrorStateMatcher();
   columnsHeader: Array<string> = ["identifier", "feedback"];
@@ -26,17 +27,19 @@ export class ReportFeedbackComponent implements OnInit {
   constructor(private reportFeedbackService: ReportFeedbackService) { }
 
   ngOnInit(): void {
+    this.feedback = {identifier: "", feedback: ""};
     this.feedbacks = this.reportFeedbackService.search();
   }
 
   send() {
-    this.reportFeedbackService.send(this.feedback);
-    this.feedback = "";
+    this.reportFeedbackService.send(this.feedback).subscribe();
+    this.feedback = {identifier: "", feedback: ""};
     this.feedbacks = this.reportFeedbackService.search();
   }
 
   reset() {
-    this.feedback = "";
+    this.feedback = {identifier: "", feedback: ""};
+    this.feedbacks = this.reportFeedbackService.search();
   }
 
 }

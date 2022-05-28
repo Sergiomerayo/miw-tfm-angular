@@ -2,6 +2,10 @@
 
 <mat-dialog-content>
   <mat-form-field class="full-width">
+    <mat-label>Identifier (Personal ID) </mat-label>
+    <input [(ngModel)]="employee.identifier" id="identifier" matInput required type="text"/>
+  </mat-form-field>
+  <mat-form-field class="full-width">
     <mat-label>Name</mat-label>
     <input [(ngModel)]="employee.name" id="name" matInput required type="text"/>
   </mat-form-field>
@@ -20,7 +24,7 @@
   </mat-form-field>
 </mat-dialog-content>
 
-<cdk-virtual-scroll-viewport class="viewport" itemSize="10" *ngIf="!isCreate()">
+<cdk-virtual-scroll-viewport class="viewport" itemSize="6">
   <div *cdkVirtualFor="let comment of employee.comments" class="item">
       {{comment}}
   </div>
@@ -28,6 +32,6 @@
 
 <mat-dialog-actions>
   <button cdkFocusInitial mat-dialog-close mat-raised-button>Close</button>
-  <button (click)="create()" *ngIf="isCreate()" color="primary" mat-raised-button>Create</button>
-  <button (click)="update()" *ngIf="!isCreate()" color="primary" mat-raised-button>Update</button>
+  <button (click)="create()" color="primary" mat-raised-button>Create</button>
+  <button (click)="update()" color="primary" mat-raised-button>Update</button>
 </mat-dialog-actions>
