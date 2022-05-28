@@ -38,6 +38,7 @@ export class ReportFeedbackComponent implements OnInit {
   }
 
   reset() {
+    this.feedback = {identifier: "", feedback: ""};
     this.feedbacks = this.reportFeedbackService.search();
   }
 
