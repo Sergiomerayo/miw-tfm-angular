@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpService} from "../../core/http.service";
 import {of} from "rxjs";
 import {TimeRegistration} from "../models/time-registration.model";
+import {EndPoints} from "../end-points";
 
 @Injectable({
   providedIn: 'root'
@@ -10,22 +11,16 @@ export class TimeRegistrationService {
 
   constructor(private httpService: HttpService) { }
 
-  search(identifierToday: string) {
-    return of({identifier: "2022101", entryHour: new Date(), leaveHour: new Date()});
+  entry(registration: TimeRegistration) {
+    return this.httpService.post(EndPoints.TIME_REGISTRATIONS, registration); //Create new row on DB
   }
 
-  entry(date: Date) {
-    return of([]); //Create new row on DB
-  }
-
-  leave(date: Date) {
-    return of([]); //Update row in DB
+  leave(id: string) {
+    return this.httpService.patch(EndPoints.TIME_REGISTRATIONS + '/' + id + EndPoints.TIME_REGISTRATIONS_LEAVE);
   }
 
   searchAll() {
-    return of([{identifier: "2022101", entryHour: new Date(), leaveHour: new Date()},
-      {identifier: "2022105", entryHour: new Date(), leaveHour: new Date()},
-      {identifier: "2022325", entryHour: new Date(), leaveHour: new Date()}]); //findall endpoint
+    return this.httpService.get(EndPoints.TIME_REGISTRATIONS_SEARCH);
   }
 
   update(timeRegistry: TimeRegistration) {

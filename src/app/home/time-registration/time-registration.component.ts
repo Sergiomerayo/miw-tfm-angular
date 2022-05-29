@@ -3,6 +3,7 @@ import {of} from "rxjs";
 import {TimeRegistrationService} from "../../shared/services/time-registration.service";
 import {MatDialog} from "@angular/material/dialog";
 import {TimeRegistrationUpdatingDialogComponent} from "./time-registration-updating-dialog/time-registration-updating-dialog.component";
+import {TimeRegistration} from "../../shared/models/time-registration.model";
 
 @Component({
   selector: 'app-time-registration',
@@ -12,11 +13,14 @@ import {TimeRegistrationUpdatingDialogComponent} from "./time-registration-updat
 export class TimeRegistrationComponent implements OnInit {
 
   registrations = of(<any> []);
+  registration: TimeRegistration;
+  alreadyEnter: Boolean;
 
   columnsHeader: Array<string> = ["identifier", "entryHour", "leaveHour", "actions"];
   constructor(private dialog: MatDialog, private timeRegistrationService: TimeRegistrationService) { }
 
   ngOnInit(): void {
+    this.alreadyEnter = false;
     this.registrations = this.timeRegistrationService.searchAll();
   }
 
@@ -25,10 +29,15 @@ export class TimeRegistrationComponent implements OnInit {
   }
 
   entry() {
-    this.timeRegistrationService.entry(new Date());
+    let registrationEntry: TimeRegistration = {id: "", entry: new Date(), leave: undefined, idEmployee: "1"};
+    this.timeRegistrationService.entry(registrationEntry).subscribe(value => this.registration = value.body);
+    this.alreadyEnter = true;
+
   }
 
   leave() {
-    this.timeRegistrationService.leave(new Date());
+    this.alreadyEnter = false;
+    this.timeRegistrationService.leave(this.registration.id).subscribe(value => window.location.reload());
+
   }
 }

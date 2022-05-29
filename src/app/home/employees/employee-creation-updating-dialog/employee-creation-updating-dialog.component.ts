@@ -28,6 +28,7 @@ export class EmployeeCreationUpdatingDialogComponent {
     this.employeeService
       .create(this.employee)
       .subscribe(() => this.dialog.closeAll());
+    window.location.reload();
   }
 
   update() {
@@ -37,6 +38,7 @@ export class EmployeeCreationUpdatingDialogComponent {
     this.employeeService
       .update(this.employee)
       .subscribe(() => this.dialog.closeAll());
+    window.location.reload();
   }
 
 }

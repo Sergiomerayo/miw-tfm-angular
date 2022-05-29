@@ -1,5 +1,6 @@
 export interface TimeRegistration {
-  identifier: string;
-  entryHour?: Date;
-  leaveHour?: Date;
+  id: string;
+  entry?: Date;
+  leave?: Date;
+  idEmployee: string;
 }

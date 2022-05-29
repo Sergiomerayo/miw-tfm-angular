@@ -1,7 +1,7 @@
 <mat-card class="buttons">
   <div id="separator"></div>
-  <button mat-raised-button color="primary" (click)="entry()">Register Entry Hour</button>
-  <button mat-raised-button color="primary" (click)="leave()">Register Leave Hour</button>
+  <button mat-raised-button color="primary" *ngIf="!alreadyEnter" (click)="entry()">Register Entry Hour</button>
+  <button mat-raised-button color="primary" *ngIf="alreadyEnter" (click)="leave()">Register Leave Hour</button>
 </mat-card>
 
 <mat-card class="times">
@@ -12,16 +12,25 @@
       <mat-row *matRowDef="let element; columns: columnsHeader;"></mat-row>
       <ng-container matColumnDef="identifier">
         <mat-header-cell *matHeaderCellDef> Identifier</mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.identifier}} </mat-cell>
+        <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="entryHour">
         <mat-header-cell *matHeaderCellDef> Entry</mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.entryHour.toLocaleString()}} </mat-cell>
+        <mat-cell *matCellDef="let element"> {{element.entry.toLocaleString().split("T")[0]
+        + " "
+        + element.entry.toLocaleString().split("T")[1].substring(0, element.entry.toLocaleString().split("T")[1].length -7)}}
+        </mat-cell>
       </ng-container>
       <ng-container matColumnDef="leaveHour">
         <mat-header-cell *matHeaderCellDef> Leave</mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.leaveHour.toLocaleString()}} </mat-cell>
+        <mat-cell *matCellDef="let element">
+          <div *ngIf="element.leave">
+            {{element.leave.toLocaleString().split("T")[0]
+          + " "
+          + element.leave.toLocaleString().split("T")[1].substring(0, element.leave.toLocaleString().split("T")[1].length-7)}}
+          </div>
+        </mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="actions">
