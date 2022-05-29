@@ -46,11 +46,13 @@ export class EmployeesComponent implements OnInit{
   }
   update(employee: Employee) {
     this.employeeService.read(employee.identifier)
-      .subscribe(fullEmployee => this.dialog.open(EmployeeCreationUpdatingDialogComponent, {data: fullEmployee}));
+      .subscribe(fullEmployee =>
+        this.dialog.open(EmployeeCreationUpdatingDialogComponent, {data: fullEmployee}));
   }
 
   delete(employee: Employee){
-    this.employeeService.delete(employee).subscribe();
+    this.employeeService.delete(employee).subscribe(value => window.location.reload());
+
   }
   ngOnInit(): void {
     this.employeeSearch = {employeeIdentifier: ""};
