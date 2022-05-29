@@ -35,12 +35,11 @@
 
       <ng-container matColumnDef="actions">
         <mat-header-cell *matHeaderCellDef>
-          <button (click)="update()" mat-button mat-icon-button matSuffix>
-            <mat-icon color="warn">edit</mat-icon>
-          </button>
         </mat-header-cell>
         <mat-cell *matCellDef="let element">
-
+          <button (click)="update(element)"  mat-button mat-icon-button matSuffix>
+            <mat-icon color="warn">mode_edit</mat-icon>
+          </button>
         </mat-cell>
       </ng-container>
     </mat-table>
