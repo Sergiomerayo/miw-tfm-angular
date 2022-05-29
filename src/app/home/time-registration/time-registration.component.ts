@@ -20,8 +20,8 @@ export class TimeRegistrationComponent implements OnInit {
     this.registrations = this.timeRegistrationService.searchAll();
   }
 
-  update() {
-    this.dialog.open(TimeRegistrationUpdatingDialogComponent);
+  update(timeRegistration: any) {
+    this.dialog.open(TimeRegistrationUpdatingDialogComponent, {data: timeRegistration});
   }
 
   entry() {
