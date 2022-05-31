@@ -32,9 +32,8 @@ export class ReportFeedbackComponent implements OnInit {
   }
 
   send() {
-    this.reportFeedbackService.send(this.feedback).subscribe();
+    this.reportFeedbackService.send(this.feedback).subscribe(value => this.feedbacks = this.reportFeedbackService.search());
     this.feedback = {identifier: "", feedback: ""};
-    this.feedbacks = this.reportFeedbackService.search();
   }
 
   reset() {
