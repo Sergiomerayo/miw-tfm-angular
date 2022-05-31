@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  DEVELOPMENT: 'https://thingproxy.freeboard.io/fetch/http://miwtfmspring-env.eba-nwvdgszg.us-east-1.elasticbeanstalk.com'
+  DEVELOPMENT: 'https://mbvrdo75mj.execute-api.us-east-1.amazonaws.com'
 };
