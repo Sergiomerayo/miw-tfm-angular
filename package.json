@@ -1,6 +1,6 @@
 {
   "name": "miw-tfm-angular",
-  "version": "0.2.0",
+  "version": "0.2.0-beta-release",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
