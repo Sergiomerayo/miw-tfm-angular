@@ -14,6 +14,7 @@ const routes: Routes = [
       {path: 'employees', component: EmployeesComponent},
       {path: 'feedback', component: ReportFeedbackComponent},
       {path: 'time-registration', component: TimeRegistrationComponent},
+      {path: '**', redirectTo: '', pathMatch: 'full'}
     ]
   }
 ];
