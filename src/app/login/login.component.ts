@@ -29,29 +29,28 @@ export class LoginComponent implements OnInit {
   }
 
   onLogin(): void {
-    // datos grupo (pool)
     var poolData = {
-      UserPoolId: environment.UserPoolId, // Your user pool id here
-      ClientId: environment.ClientId, // Your client id here
+      UserPoolId: environment.UserPoolId,
+      ClientId: environment.ClientId,
     };
     var userPool = new CognitoUserPool(poolData);
-    // datos del user
+
     var userData = {
       Username: this.email,
       Pool: userPool
     }
     var cognitoUser = new CognitoUser(userData);
-    // credenciales
+
     var authData = {
       Username: this.email,
       Password: this.password
     }
     var authDetails = new AuthenticationDetails(authData);
-    // login
+
     cognitoUser.authenticateUser(authDetails, {
       onSuccess: (result) => {
         console.log('Token: ' + result.getAccessToken().getJwtToken());
-        this.router.navigate(['/home']);
+        this.router.navigate(['/home/employees']);
       },
       onFailure: (err) => {
         alert(err.message || JSON.stringify(err));
