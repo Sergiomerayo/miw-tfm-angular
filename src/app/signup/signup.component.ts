@@ -25,6 +25,7 @@ export class SignupComponent implements OnInit {
   nickname: string;
   password: string;
   matcher = new MyErrorStateMatcher();
+  hide = true;
 
   constructor(private router: Router) { }
 

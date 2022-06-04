@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit {
   email: string;
   password: string;
   matcher = new MyErrorStateMatcher();
+  hide = true;
 
   constructor(private router: Router) { }
 
