@@ -1,0 +1,45 @@
+<p>
+  <mat-toolbar color="primary">
+    <span class="spacer-small"></span>
+    <a mat-button="" [routerLink]="['/signup']" class="mat-focus-indicator docs-navbar-hide-small docs-button mat-button mat-button-base" aria-disabled="false">
+      <span class="mat-button-wrapper">SignUp</span>
+    </a>
+
+    <span class="spacer-small"></span>
+    <a mat-button="" [routerLink]="['/login']" class="mat-focus-indicator docs-navbar-hide-small docs-button mat-button mat-button-base" aria-disabled="false">
+      <span class="mat-button-wrapper">Login</span>
+    </a>
+    <span class="spacer"></span>
+  </mat-toolbar>
+</p>
+
+<mat-card>
+  <mat-card-content>
+    <p>
+      <mat-form-field class="form-Login" appearance="fill">
+          <mat-label>Email</mat-label>
+          <input [(ngModel)]="email" type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+                 placeholder="Email">
+          <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+            Please enter a valid email
+          </mat-error>
+          <mat-error *ngIf="emailFormControl.hasError('required')">
+            Email<strong> required</strong>
+          </mat-error>
+        </mat-form-field>
+    </p>
+
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Enter your password</mat-label>
+        <input [(ngModel)]="password" matInput [type]="hide ? 'password' : 'text'">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+    </p>
+    <p>
+      <button mat-raised-button color="primary" [disabled]="!password" (click)="onLogin()">Login</button>
+    </p>
+  </mat-card-content>
+</mat-card>

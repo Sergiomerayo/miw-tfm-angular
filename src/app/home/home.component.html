@@ -15,6 +15,10 @@
     </a>
 
     <span class="spacer"></span>
+
+    <button mat-icon-button class="reportHr" (click)="onLogout()" aria-label="icon-button">
+      <mat-icon>exit_to_app</mat-icon>
+    </button>
     <button mat-icon-button class="reportHr" [routerLink]="['/home/feedback']" aria-label="icon-button with share icon">
       <mat-icon>email</mat-icon>
     </button>

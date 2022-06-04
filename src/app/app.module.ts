@@ -18,11 +18,15 @@ import {HttpClientModule} from "@angular/common/http";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import { ReadDetailDialogComponent } from './shared/dialogs/read-detail.dialog/read-detail.dialog.component';
 import {MatDialogModule} from "@angular/material/dialog";
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ReadDetailDialogComponent,
+    LoginComponent,
+    SignupComponent,
   ],
   imports: [
     AppRoutingModule,
