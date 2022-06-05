@@ -59,6 +59,6 @@ describe('HomeComponent', () => {
     const fixture = TestBed.createComponent(HomeComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.title-page')?.textContent).toContain('Human Resources');
+    expect(compiled.querySelector('.title-page')?.textContent).toContain('HR');
   });
 });
