@@ -27,4 +27,14 @@ export class AuthService {
     }
     return isAuth;
   }
+
+  getToken(): any {
+    for (let i = 0; i < localStorage.length; i++ ) {
+      // @ts-ignore
+      if(localStorage.key(i).endsWith(environment.ACCESS_TOKEN) && localStorage.key(i).includes(environment.ClientId)) {
+        return localStorage.getItem(<string>localStorage.key(i));
+      }
+    }
+    return null;
+  }
 }
