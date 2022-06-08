@@ -14,12 +14,13 @@ import {MatCardModule} from "@angular/material/card";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import { ReadDetailDialogComponent } from './shared/dialogs/read-detail.dialog/read-detail.dialog.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import {TokenInterceptor} from "./shared/services/token.interceptor";
 
 @NgModule({
   declarations: [
@@ -47,7 +48,11 @@ import { SignupComponent } from './signup/signup.component';
     MatDialogModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptor,
+    multi:true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

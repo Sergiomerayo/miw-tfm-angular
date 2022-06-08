@@ -7,6 +7,9 @@ export const environment = {
   DEVELOPMENT: 'http://localhost:8082',
   UserPoolId: 'us-east-1_eIfc63aKR',
   ClientId: '535m4dbknljpfcj9gdpcust8fs',
+  ACCESS_TOKEN: 'accessToken',
+  AUTHORIZATION: 'Authorization',
+  BEARER: 'Bearer '
 };
 
 /*
