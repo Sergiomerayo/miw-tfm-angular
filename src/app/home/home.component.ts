@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CognitoUserPool, CognitoUserAttribute } from 'amazon-cognito-identity-js';
 import { environment} from "../../environments/environment";
 import { Router } from '@angular/router';
+import {AuthService} from "../core/auth.service";
 
 @Component({
   selector: 'app-home',
@@ -11,13 +12,15 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
   attributes: CognitoUserAttribute[];
   poolData = {
-    UserPoolId: environment.UserPoolId, // Your user pool id here
-    ClientId: environment.ClientId, // Your client id here
+    UserPoolId: environment.UserPoolId,
+    ClientId: environment.ClientId,
   };
+  isAdmin: Boolean = false;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private authService: AuthService) { }
 
   ngOnInit(): void {
+    this.isAdmin = this.authService.isAdmin();
   }
 
   onLogout(): void {

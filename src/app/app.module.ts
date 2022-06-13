@@ -21,6 +21,7 @@ import {MatDialogModule} from "@angular/material/dialog";
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import {TokenInterceptor} from "./shared/services/token.interceptor";
+import {ManageModule} from "./home/manage/manage.module";
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import {TokenInterceptor} from "./shared/services/token.interceptor";
     HttpClientModule,
     MatSnackBarModule,
     MatDialogModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ManageModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

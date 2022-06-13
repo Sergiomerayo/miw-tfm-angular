@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {environment} from "../../environments/environment";
 import {CognitoUserPool} from "amazon-cognito-identity-js";
 
@@ -12,8 +12,8 @@ export class AuthService {
   isAuth(): boolean {
     var isAuth = false;
     var poolData = {
-      UserPoolId: environment.UserPoolId, // Your user pool id here
-      ClientId: environment.ClientId, // Your client id here
+      UserPoolId: environment.UserPoolId,
+      ClientId: environment.ClientId,
     };
     var userPool = new CognitoUserPool(poolData);
     var currentUser = userPool.getCurrentUser();
@@ -44,7 +44,7 @@ export class AuthService {
     let payloadDecoded = atob(payload);
     let values = JSON.parse(payloadDecoded);
     let roles = values['cognito:groups'];
-    let isAdmin = roles.indexOf('ROLE_ADMIN') < 0 ? false: true;
-    return isAdmin;
+
+    return roles.indexOf('ROLE_ADMIN') >= 0;
   }
 }

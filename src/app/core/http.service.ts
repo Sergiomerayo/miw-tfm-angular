@@ -50,7 +50,7 @@ export class HttpService {
         const blob = new Blob([response.body], {type: 'application/pdf'});
         window.open(window.URL.createObjectURL(blob));
       } else if (contentType.indexOf('application/json') !== -1) {
-        return response.body; // with 'text': JSON.parse(response.body);
+        return response.body;
       }
     } else {
       return response;

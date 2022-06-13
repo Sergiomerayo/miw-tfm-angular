@@ -52,7 +52,6 @@ export class SignupComponent implements OnInit {
       var attr = new CognitoUserAttribute(attrData);
       attrList.push(attr);
     }
-    // sign up
     userPool.signUp(this.email, this.password, attrList, [], (err, result) => {
       if (err) {
         alert(err.message || JSON.stringify(err));

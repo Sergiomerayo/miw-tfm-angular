@@ -32,12 +32,10 @@ export class TimeRegistrationComponent implements OnInit {
     let registrationEntry: TimeRegistration = {id: "", entry: new Date(), leave: undefined, idEmployee: "1"};
     this.timeRegistrationService.entry(registrationEntry).subscribe(value => this.registration = value.body);
     this.alreadyEnter = true;
-
   }
 
   leave() {
     this.alreadyEnter = false;
     this.timeRegistrationService.leave(this.registration.id).subscribe(value => window.location.reload());
-
   }
 }
