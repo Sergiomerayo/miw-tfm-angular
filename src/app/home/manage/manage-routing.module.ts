@@ -9,6 +9,7 @@ const routes: Routes = [
     component: ManageComponent,
     children: [
       {path: 'employees', component: EmployeesComponent},
+      {path: '**', redirectTo: '', pathMatch: 'full'}
     ]
   }
 ];

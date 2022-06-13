@@ -58,8 +58,11 @@ export class LoginComponent implements OnInit {
         }else{
           console.log('IS USER');
         }
-
-        this.router.navigate(['/home/employees']);
+        if(this.auth.isAdmin()){
+          this.router.navigate(['/home/employees']);
+        }else{
+          this.router.navigate(['/home/time-registration']);
+        }
       },
       onFailure: (err) => {
         alert(err.message || JSON.stringify(err));

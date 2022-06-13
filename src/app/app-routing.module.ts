@@ -9,7 +9,7 @@ const routes: Routes = [
   {path: '', component: LoginComponent},
   {path: 'login', component: LoginComponent, canActivate: [LoginGuard]},
   {path: 'signup', component: SignupComponent, canActivate: [LoginGuard]},
-  {path: 'home', loadChildren: () => import('./home/home.module').then(module => module.HomeModule), canActivate: [HomeGuard]}, // lazy load
+  {path: 'home', loadChildren: () => import('./home/home.module').then(module => module.HomeModule), canActivate: [HomeGuard]},
 ];
 
 @NgModule({

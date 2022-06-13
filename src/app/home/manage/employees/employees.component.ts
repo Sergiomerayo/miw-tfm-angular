@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {EmployeeSearch} from "../../shared/models/employee-search.model";
+import {EmployeeSearch} from "../../../shared/models/employee-search.model";
 import {of} from "rxjs";
-import {EmployeeService} from "../../shared/services/employee.service";
-import {ReadDetailDialogComponent} from "../../shared/dialogs/read-detail.dialog/read-detail.dialog.component";
-import {Employee} from "../../shared/models/employee.model";
+import {EmployeeService} from "../../../shared/services/employee.service";
+import {ReadDetailDialogComponent} from "../../../shared/dialogs/read-detail.dialog/read-detail.dialog.component";
+import {Employee} from "../../../shared/models/employee.model";
 import {MatDialog} from "@angular/material/dialog";
 import {EmployeeCreationUpdatingDialogComponent} from "./employee-creation-updating-dialog/employee-creation-updating-dialog.component";
 

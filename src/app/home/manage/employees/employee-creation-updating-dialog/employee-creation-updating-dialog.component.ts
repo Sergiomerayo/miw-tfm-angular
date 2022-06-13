@@ -1,7 +1,7 @@
 import {Component, Inject} from '@angular/core';
-import {Employee} from "../../../shared/models/employee.model";
+import {Employee} from "../../../../shared/models/employee.model";
 import {MAT_DIALOG_DATA, MatDialog} from "@angular/material/dialog";
-import {EmployeeService} from "../../../shared/services/employee.service";
+import {EmployeeService} from "../../../../shared/services/employee.service";
 
 @Component({
   selector: 'app-employee-creation-updating-dialog',
