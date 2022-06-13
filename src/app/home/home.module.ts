@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 
 import {HomeComponent} from './home.component';
 import {HomeRoutingModule} from './home-routing.module';
-import {EmployeesComponent} from "./employees/employees.component";
+import {EmployeesComponent} from "../manage/employees/employees.component";
 import {FooterComponent} from "../shared/footer/footer.component";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatButtonModule} from "@angular/material/button";
@@ -13,7 +13,7 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {RouterModule} from "@angular/router";
-import { EmployeeCreationUpdatingDialogComponent } from './employees/employee-creation-updating-dialog/employee-creation-updating-dialog.component';
+import { EmployeeCreationUpdatingDialogComponent } from '../manage/employees/employee-creation-updating-dialog/employee-creation-updating-dialog.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import {CommonModule} from "@angular/common";
 import {ScrollingModule} from "@angular/cdk/scrolling";
@@ -26,9 +26,9 @@ import { TimeRegistrationUpdatingDialogComponent } from './time-registration/tim
   declarations: [
 
     HomeComponent,
-    EmployeesComponent,
+    //EmployeesComponent,
     FooterComponent,
-    EmployeeCreationUpdatingDialogComponent,
+    //EmployeeCreationUpdatingDialogComponent,
     ReportFeedbackComponent,
     TimeRegistrationComponent,
     TimeRegistrationUpdatingDialogComponent,

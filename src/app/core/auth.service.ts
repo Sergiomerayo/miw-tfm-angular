@@ -37,4 +37,14 @@ export class AuthService {
     }
     return null;
   }
+
+  isAdmin(): boolean {
+    let token = this.getToken();
+    let payload = token.split('.')[1];
+    let payloadDecoded = atob(payload);
+    let values = JSON.parse(payloadDecoded);
+    let roles = values['cognito:groups'];
+    let isAdmin = roles.indexOf('ROLE_ADMIN') < 0 ? false: true;
+    return isAdmin;
+  }
 }

@@ -4,6 +4,7 @@ import {ErrorStateMatcher} from "@angular/material/core";
 import { Router } from '@angular/router';
 import { CognitoUserPool, CognitoUser, AuthenticationDetails } from 'amazon-cognito-identity-js';
 import {environment} from "../../environments/environment";
+import {AuthService} from "../core/auth.service";
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -24,7 +25,7 @@ export class LoginComponent implements OnInit {
   matcher = new MyErrorStateMatcher();
   hide = true;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private auth: AuthService) { }
 
   ngOnInit(): void {
   }
@@ -51,6 +52,13 @@ export class LoginComponent implements OnInit {
     cognitoUser.authenticateUser(authDetails, {
       onSuccess: (result) => {
         console.log('Token: ' + result.getAccessToken().getJwtToken());
+        //TODO: Distinguir si es ADMIN o USER
+        if(this.auth.isAdmin()){
+          console.log('IS ADMIN');
+        }else{
+          console.log('IS USER');
+        }
+
         this.router.navigate(['/home/employees']);
       },
       onFailure: (err) => {
