@@ -9,7 +9,8 @@ export const environment = {
   ClientId: '535m4dbknljpfcj9gdpcust8fs',
   ACCESS_TOKEN: 'accessToken',
   AUTHORIZATION: 'Authorization',
-  BEARER: 'Bearer '
+  BEARER: 'Bearer ',
+  LAST_USER: 'LastAuthUser'
 };
 
 /*
