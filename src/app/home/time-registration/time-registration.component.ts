@@ -4,6 +4,7 @@ import {TimeRegistrationService} from "../../shared/services/time-registration.s
 import {MatDialog} from "@angular/material/dialog";
 import {TimeRegistrationUpdatingDialogComponent} from "./time-registration-updating-dialog/time-registration-updating-dialog.component";
 import {TimeRegistration} from "../../shared/models/time-registration.model";
+import {AuthService} from "../../core/auth.service";
 
 @Component({
   selector: 'app-time-registration',
@@ -15,13 +16,21 @@ export class TimeRegistrationComponent implements OnInit {
   registrations = of(<any> []);
   registration: TimeRegistration;
   alreadyEnter: Boolean;
+  isAdmin: Boolean;
 
-  columnsHeader: Array<string> = ["identifier", "entryHour", "leaveHour", "actions"];
-  constructor(private dialog: MatDialog, private timeRegistrationService: TimeRegistrationService) { }
+  columnsHeader: Array<string> = ["entryHour", "leaveHour", "actions"];
+  constructor(private dialog: MatDialog, private timeRegistrationService: TimeRegistrationService,
+              private authService: AuthService) { }
 
   ngOnInit(): void {
     this.alreadyEnter = false;
-    this.registrations = this.timeRegistrationService.searchAll();
+    this.isAdmin = this.authService.isAdmin();
+    if(this.isAdmin){
+      this.registrations = this.timeRegistrationService.searchAll();
+    }else{
+      this.registrations = this.timeRegistrationService.searchById(this.authService.getUsername());
+    }
+
   }
 
   update(timeRegistration: any) {
@@ -29,7 +38,7 @@ export class TimeRegistrationComponent implements OnInit {
   }
 
   entry() {
-    let registrationEntry: TimeRegistration = {id: "", entry: new Date(), leave: undefined, idEmployee: "1"};
+    let registrationEntry: TimeRegistration = {id: "", entry: new Date(), leave: undefined, idEmployee: this.authService.getUsername()};
     this.timeRegistrationService.entry(registrationEntry).subscribe(value => this.registration = value.body);
     this.alreadyEnter = true;
   }

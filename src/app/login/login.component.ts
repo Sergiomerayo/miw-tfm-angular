@@ -52,12 +52,7 @@ export class LoginComponent implements OnInit {
     cognitoUser.authenticateUser(authDetails, {
       onSuccess: (result) => {
         console.log('Token: ' + result.getAccessToken().getJwtToken());
-        //TODO: Distinguir si es ADMIN o USER
-        if(this.auth.isAdmin()){
-          console.log('IS ADMIN');
-        }else{
-          console.log('IS USER');
-        }
+
         if(this.auth.isAdmin()){
           this.router.navigate(['/home/employees']);
         }else{

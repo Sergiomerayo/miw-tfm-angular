@@ -38,6 +38,16 @@ export class AuthService {
     return null;
   }
 
+  getUsername(): any{
+    for (let i = 0; i < localStorage.length; i++ ) {
+      // @ts-ignore
+      if(localStorage.key(i).endsWith(environment.LAST_USER)) {
+        return localStorage.getItem(<string>localStorage.key(i));
+      }
+    }
+    return null;
+  }
+
   isAdmin(): boolean {
     let token = this.getToken();
     let payload = token.split('.')[1];

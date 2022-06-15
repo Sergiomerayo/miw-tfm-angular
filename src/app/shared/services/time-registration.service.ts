@@ -23,6 +23,10 @@ export class TimeRegistrationService {
     return this.httpService.get(EndPoints.TIME_REGISTRATIONS_SEARCH);
   }
 
+  searchById(id: string){
+    return this.httpService.get(EndPoints.TIME_REGISTRATIONS + '/' + id);
+  }
+
   update(timeRegistry: TimeRegistration) {
     return of([]);
   }
