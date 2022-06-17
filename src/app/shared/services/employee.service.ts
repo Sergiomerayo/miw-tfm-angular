@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Observable} from "rxjs";
+import {Observable, of} from "rxjs";
 
 import {HttpService} from "../../core/http.service";
 import {EmployeeSearch} from "../models/employee-search.model";
@@ -13,12 +13,12 @@ export class EmployeeService {
 
   constructor(private httpService: HttpService) { }
 
-  search(employeeSearch: EmployeeSearch): Observable<any> {
+  search(employeeSearch: EmployeeSearch) {
     if(employeeSearch.employeeIdentifier =="") {
       return this.httpService.get(EndPoints.EMPLOYEES_SEARCH);
     }
    else{
-     return this.read(employeeSearch.employeeIdentifier);
+      return this.httpService.get(EndPoints.EMPLOYEES_SEARCH + '/' + employeeSearch.employeeIdentifier);
     }
   }
 

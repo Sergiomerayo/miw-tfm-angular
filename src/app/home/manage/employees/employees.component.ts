@@ -30,6 +30,7 @@ export class EmployeesComponent implements OnInit{
 
   resetSearch(): void {
     this.employeeSearch = {employeeIdentifier: ""};
+    this.employees = this.employeeService.search(this.employeeSearch);
   }
 
   create(): void {
