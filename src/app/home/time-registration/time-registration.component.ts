@@ -38,7 +38,7 @@ export class TimeRegistrationComponent implements OnInit {
   }
 
   entry() {
-    let registrationEntry: TimeRegistration = {id: "", entry: new Date(), leave: undefined, idEmployee: this.authService.getUsername()};
+    let registrationEntry: TimeRegistration = {id: "", entryHour: new Date(), leaveHour: undefined, idEmployee: this.authService.getUsername()};
     this.timeRegistrationService.entry(registrationEntry).subscribe(value => this.registration = value.body);
     this.alreadyEnter = true;
   }
