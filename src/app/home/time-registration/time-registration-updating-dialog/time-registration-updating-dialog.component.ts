@@ -19,28 +19,28 @@ export class TimeRegistrationUpdatingDialogComponent implements OnInit {
   constructor(@Inject(MAT_DIALOG_DATA) data: TimeRegistration, private timeRegistrationService: TimeRegistrationService, private dialog: MatDialog) {
     this.title = 'Time registry';
     this.dateTimeRegistry = new Date();
-    this.timeRegistry = {id: "", entry: new Date(0), leave: new Date(0), idEmployee: "1"};
+    this.timeRegistry = {id: "", entryHour: new Date(0), leaveHour: new Date(0), idEmployee: "1"};
   }
   ngOnInit(): void {
   }
 
   update() {
-    this.timeRegistry.entry?.setFullYear(Number(this.dateTimeRegistry.toLocaleString().split('-')[0]));
-    this.timeRegistry.entry?.setMonth(Number(this.dateTimeRegistry.toLocaleString().split('-')[1])-1);
-    this.timeRegistry.entry?.setDate(Number(this.dateTimeRegistry.toLocaleString().split('-')[2]));
-    this.timeRegistry.leave?.setFullYear(Number(this.dateTimeRegistry.toLocaleString().split('-')[0]));
-    this.timeRegistry.leave?.setMonth(Number(this.dateTimeRegistry.toLocaleString().split('-')[1])-1);
-    this.timeRegistry.leave?.setDate(Number(this.dateTimeRegistry.toLocaleString().split('-')[2]));
+    this.timeRegistry.entryHour?.setFullYear(Number(this.dateTimeRegistry.toLocaleString().split('-')[0]));
+    this.timeRegistry.entryHour?.setMonth(Number(this.dateTimeRegistry.toLocaleString().split('-')[1])-1);
+    this.timeRegistry.entryHour?.setDate(Number(this.dateTimeRegistry.toLocaleString().split('-')[2]));
+    this.timeRegistry.leaveHour?.setFullYear(Number(this.dateTimeRegistry.toLocaleString().split('-')[0]));
+    this.timeRegistry.leaveHour?.setMonth(Number(this.dateTimeRegistry.toLocaleString().split('-')[1])-1);
+    this.timeRegistry.leaveHour?.setDate(Number(this.dateTimeRegistry.toLocaleString().split('-')[2]));
 
     let entryHourString = String(this.entryHour);
     let leaveHourString = String(this.leaveHour);
 
-    this.timeRegistry.entry?.setHours(Number(entryHourString.split(':')[0]));
-    this.timeRegistry.entry?.setMinutes(Number(entryHourString.split(':')[1]));
-    this.timeRegistry.leave?.setHours(Number(leaveHourString.split(':')[0]));
-    this.timeRegistry.leave?.setMinutes(Number(leaveHourString.split(':')[1]));
+    this.timeRegistry.entryHour?.setHours(Number(entryHourString.split(':')[0]));
+    this.timeRegistry.entryHour?.setMinutes(Number(entryHourString.split(':')[1]));
+    this.timeRegistry.leaveHour?.setHours(Number(leaveHourString.split(':')[0]));
+    this.timeRegistry.leaveHour?.setMinutes(Number(leaveHourString.split(':')[1]));
 
-    console.log(this.timeRegistry.entry + " - "+this.timeRegistry.leave);
+    console.log(this.timeRegistry.entryHour + " - "+this.timeRegistry.leaveHour);
     this.timeRegistrationService
       .update(this.timeRegistry)
       .subscribe(() => this.dialog.closeAll());
