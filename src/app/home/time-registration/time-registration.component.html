@@ -13,18 +13,18 @@
 
       <ng-container matColumnDef="entryHour">
         <mat-header-cell *matHeaderCellDef> Entry</mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.entry.toLocaleString().split("T")[0]
+        <mat-cell *matCellDef="let element"> {{element.entryHour.toLocaleString().split("T")[0]
         + " "
-        + element.entry.toLocaleString().split("T")[1].substring(0, element.entry.toLocaleString().split("T")[1].length -7)}}
+        + element.entryHour.toLocaleString().split("T")[1].substring(0, element.entryHour.toLocaleString().split("T")[1].length -7)}}
         </mat-cell>
       </ng-container>
       <ng-container matColumnDef="leaveHour">
         <mat-header-cell *matHeaderCellDef> Leave</mat-header-cell>
         <mat-cell *matCellDef="let element">
-          <div *ngIf="element.leave">
-            {{element.leave.toLocaleString().split("T")[0]
+          <div *ngIf="element.leaveHour">
+            {{element.leaveHour.toLocaleString().split("T")[0]
           + " "
-          + element.leave.toLocaleString().split("T")[1].substring(0, element.leave.toLocaleString().split("T")[1].length-7)}}
+          + element.leaveHour.toLocaleString().split("T")[1].substring(0, element.leaveHour.toLocaleString().split("T")[1].length-7)}}
           </div>
         </mat-cell>
       </ng-container>
