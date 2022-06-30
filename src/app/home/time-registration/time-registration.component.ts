@@ -18,7 +18,7 @@ export class TimeRegistrationComponent implements OnInit {
   alreadyEnter: Boolean;
   isAdmin: Boolean;
 
-  columnsHeader: Array<string> = ["entryHour", "leaveHour", "actions"];
+  columnsHeader: Array<string> = ["idEmployee", "entryHour", "leaveHour", "actions"];
   constructor(private dialog: MatDialog, private timeRegistrationService: TimeRegistrationService,
               private authService: AuthService) { }
 

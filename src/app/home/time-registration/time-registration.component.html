@@ -11,6 +11,13 @@
       <mat-header-row *matHeaderRowDef="columnsHeader"></mat-header-row>
       <mat-row *matRowDef="let element; columns: columnsHeader;"></mat-row>
 
+      <ng-container matColumnDef="idEmployee" >
+        <mat-header-cell *matHeaderCellDef> Employee</mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <div>{{element.idEmployee}}</div>
+        </mat-cell>
+      </ng-container>
+
       <ng-container matColumnDef="entryHour">
         <mat-header-cell *matHeaderCellDef> Entry</mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.entryHour.toLocaleString().split("T")[0]
